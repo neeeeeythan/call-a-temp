@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-label="Call A Temp">
+  <rect width="760" height="200" fill="#2EE8B0"/>
+  <circle cx="100" cy="100" r="86" fill="#1A1B5E"/>
+  <g fill="#7CD8DD">
+    <circle cx="100" cy="34" r="8.5"/>
+    <circle cx="135" cy="43" r="8.5"/>
+    <circle cx="161" cy="69" r="8.5"/>
+    <circle cx="170" cy="104" r="8.5"/>
+    <circle cx="161" cy="139" r="8.5"/>
+    <circle cx="135" cy="165" r="8.5"/>
+    <circle cx="100" cy="174" r="8.5"/>
+    <circle cx="65" cy="165" r="8.5"/>
+    <circle cx="39" cy="139" r="8.5"/>
+    <circle cx="30" cy="104" r="8.5"/>
+    <circle cx="39" cy="69" r="8.5"/>
+    <circle cx="65" cy="43" r="8.5"/>
+  </g>
+  <text x="210" y="138" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="120" fill="#1A1B5E" letter-spacing="-2">Call A Temp</text>
+</svg>
