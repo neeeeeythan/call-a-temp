@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Register with Call A Temp — sign up as dental staff or as a Perth dental practice for flexible temp staffing." />
+  <title>Register — Call A Temp</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">Servicing dental practices across Perth, WA</span>
+      <span class="topbar__sep" aria-hidden="true">•</span>
+      <a class="topbar__item" href="tel:+61000000000">Call 1300 000 000</a>
+      <span class="topbar__sep" aria-hidden="true">•</span>
+      <a class="topbar__item" href="mailto:hello@callatemp.com.au">hello@callatemp.com.au</a>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Call A Temp home">
+        <img src="assets/logo-mark.svg" alt="" class="brand__mark" />
+        <span class="brand__wordmark">Call <span class="brand__a">A</span> Temp</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">For Dental Clinics</a>
+        <a href="staff.html">For Dental Staff</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="register.html" class="is-active">Register</a>
+        <a href="index.html#book" class="btn btn--primary btn--sm">Book a Temp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Register hero -->
+    <section class="register-hero">
+      <div class="container register-hero__inner">
+        <span class="eyebrow eyebrow--on-dark">Register · Perth, WA</span>
+        <h1>Register with Call A Temp.</h1>
+        <p class="lead lead--on-dark">
+          Whether you're a dental professional looking for flexible shifts or a Perth practice that needs reliable cover,
+          fill in the form below and we'll be in touch within a day.
+        </p>
+      </div>
+    </section>
+
+    <!-- Register tabs + forms -->
+    <section class="section register-section">
+      <div class="container">
+
+        <div class="register-tabs reveal" role="tablist" aria-label="Registration type">
+          <button
+            type="button"
+            class="register-tab is-active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-staff"
+            id="tab-staff"
+            data-tab="staff"
+          >
+            Staff Registration Form
+          </button>
+          <button
+            type="button"
+            class="register-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-business"
+            id="tab-business"
+            tabindex="-1"
+            data-tab="business"
+          >
+            Business Registration Form
+          </button>
+        </div>
+
+        <div class="register-panels reveal">
+
+          <!-- Staff form -->
+          <div
+            class="register-panel is-active"
+            id="panel-staff"
+            role="tabpanel"
+            aria-labelledby="tab-staff"
+          >
+            <form
+              class="contact__form register-form"
+              onsubmit="event.preventDefault(); alert('Thanks! We’ll be in touch within a day.'); this.reset();"
+              novalidate
+            >
+              <div class="field field--full">
+                <label for="staff-applying">Applying for</label>
+                <select id="staff-applying" name="applying-for" required>
+                  <option value="" disabled selected>Select a role…</option>
+                  <option>Dental Assistant</option>
+                  <option>Dental Hygienist</option>
+                  <option>Oral Health Therapist</option>
+                  <option>Dental Receptionist</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="staff-first">First name *</label>
+                <input id="staff-first" name="first-name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="staff-last">Last name *</label>
+                <input id="staff-last" name="last-name" type="text" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="staff-email">Email *</label>
+                <input id="staff-email" name="email" type="email" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="staff-address">Address *</label>
+                <input id="staff-address" name="address" type="text" required />
+              </div>
+
+              <div class="field">
+                <label for="staff-city">City / Suburb *</label>
+                <input id="staff-city" name="city" type="text" required />
+              </div>
+              <div class="field">
+                <label for="staff-postcode">Postcode *</label>
+                <input id="staff-postcode" name="postcode" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required />
+              </div>
+
+              <div class="field">
+                <label for="staff-state">State *</label>
+                <select id="staff-state" name="state" required>
+                  <option value="WA" selected>Western Australia</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="staff-phone">Phone *</label>
+                <input id="staff-phone" name="phone" type="tel" required />
+              </div>
+
+              <!-- reCAPTCHA placeholder: drop the Google reCAPTCHA snippet here when ready -->
+              <div class="field field--full register-captcha" aria-hidden="true">
+                <div class="captcha-placeholder">
+                  <span class="captcha-checkbox"></span>
+                  <span class="captcha-label">I'm not a robot</span>
+                  <span class="captcha-brand">reCAPTCHA</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg register-submit">Submit</button>
+            </form>
+          </div>
+
+          <!-- Business form -->
+          <div
+            class="register-panel"
+            id="panel-business"
+            role="tabpanel"
+            aria-labelledby="tab-business"
+            hidden
+          >
+            <form
+              class="contact__form register-form"
+              onsubmit="event.preventDefault(); alert('Thanks! We’ll be in touch within a day.'); this.reset();"
+              novalidate
+            >
+              <div class="field field--full">
+                <label for="biz-company">Company name *</label>
+                <input id="biz-company" name="company" type="text" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="biz-phone">Phone *</label>
+                <input id="biz-phone" name="phone" type="tel" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="biz-address">Address *</label>
+                <input id="biz-address" name="address" type="text" required />
+              </div>
+
+              <div class="field">
+                <label for="biz-city">City / Suburb *</label>
+                <input id="biz-city" name="city" type="text" required />
+              </div>
+              <div class="field">
+                <label for="biz-postcode">Postcode *</label>
+                <input id="biz-postcode" name="postcode" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="biz-state">State *</label>
+                <select id="biz-state" name="state" required>
+                  <option value="WA" selected>Western Australia</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="biz-first">First name *</label>
+                <input id="biz-first" name="first-name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="biz-last">Last name *</label>
+                <input id="biz-last" name="last-name" type="text" required />
+              </div>
+
+              <div class="field field--full">
+                <label for="biz-email">Email *</label>
+                <input id="biz-email" name="email" type="email" required />
+              </div>
+
+              <div class="field field--full register-captcha" aria-hidden="true">
+                <div class="captcha-placeholder">
+                  <span class="captcha-checkbox"></span>
+                  <span class="captcha-label">I'm not a robot</span>
+                  <span class="captcha-brand">reCAPTCHA</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg register-submit">Submit</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand brand--footer" href="index.html" aria-label="Call A Temp home">
+          <img src="assets/logo-mark-footer.svg" alt="" class="brand__mark" />
+          <span class="brand__wordmark">Call <span class="brand__a">A</span> Temp</span>
+        </a>
+        <p>Reliable dental temp staffing across Perth, WA.</p>
+        <ul class="social-links" aria-label="Call A Temp on social media">
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Call A Temp on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Call A Temp on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.222 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="site-footer__cols">
+        <div>
+          <h4>Services</h4>
+          <a href="index.html#services">Dental Assistants</a>
+          <a href="index.html#services">Hygienists</a>
+          <a href="index.html#services">Oral Health Therapists</a>
+          <a href="index.html#services">Receptionists</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="index.html#about">About</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <a href="tel:+61000000000">1300 000 000</a>
+          <a href="mailto:hello@callatemp.com.au">hello@callatemp.com.au</a>
+        </div>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <small>© <span id="year"></span> Call A Temp. All rights reserved.</small>
+      <small>Servicing dental practices across Perth, WA.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', false);
+    }));
+
+    // Reveal-on-scroll
+    const revealTargets = document.querySelectorAll('.reveal, .reveal-group');
+    if ('IntersectionObserver' in window && revealTargets.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-inview');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealTargets.forEach(el => io.observe(el));
+    } else {
+      revealTargets.forEach(el => el.classList.add('is-inview'));
+    }
+
+    // Register tabs
+    const tabs = document.querySelectorAll('.register-tab');
+    const panels = document.querySelectorAll('.register-panel');
+    function activateTab(name) {
+      tabs.forEach(t => {
+        const active = t.dataset.tab === name;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active);
+        t.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(p => {
+        const active = p.id === 'panel-' + name;
+        p.classList.toggle('is-active', active);
+        if (active) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+      });
+    }
+    tabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+    tabs.forEach(t => t.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const next = e.key === 'ArrowRight'
+          ? (t.dataset.tab === 'staff' ? 'business' : 'staff')
+          : (t.dataset.tab === 'business' ? 'staff' : 'business');
+        activateTab(next);
+        document.getElementById('tab-' + next).focus();
+      }
+    }));
+  </script>
+</body>
+</html>
