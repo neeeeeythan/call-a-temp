@@ -143,7 +143,7 @@ p  { margin: 0 0 1em; color: var(--muted); }
   color: var(--navy);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.brand__mark { width: 38px; height: 38px; }
+.brand__mark { width: 44px; height: 44px; }
 .brand__wordmark {
   font-weight: 800;
   font-size: 1.25rem;

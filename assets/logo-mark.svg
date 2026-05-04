@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Call A Temp logomark">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" shape-rendering="geometricPrecision" role="img" aria-label="Call A Temp logomark">
   <circle cx="100" cy="100" r="92" fill="#1A1B5E"/>
   <g fill="#7CD8DD">
     <circle cx="150" cy="50" r="16"/>
