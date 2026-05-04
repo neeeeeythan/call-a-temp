@@ -103,10 +103,18 @@
             aria-labelledby="tab-staff"
           >
             <form
+              id="form-staff"
               class="contact__form register-form"
-              onsubmit="event.preventDefault(); alert('Thanks! We’ll be in touch within a day.'); this.reset();"
-              novalidate
+              action="https://formsubmit.co/ajax/jonathandavis.redoblado@gmail.com"
+              method="POST"
+              data-form-type="staff"
             >
+              <!-- FormSubmit config -->
+              <input type="hidden" name="_subject" value="New Staff Registration — Call A Temp" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+
               <div class="field field--full">
                 <label for="staff-applying">Applying for</label>
                 <select id="staff-applying" name="applying-for" required>
@@ -157,14 +165,7 @@
                 <input id="staff-phone" name="phone" type="tel" required />
               </div>
 
-              <!-- reCAPTCHA placeholder: drop the Google reCAPTCHA snippet here when ready -->
-              <div class="field field--full register-captcha" aria-hidden="true">
-                <div class="captcha-placeholder">
-                  <span class="captcha-checkbox"></span>
-                  <span class="captcha-label">I'm not a robot</span>
-                  <span class="captcha-brand">reCAPTCHA</span>
-                </div>
-              </div>
+              <p class="form-status field--full" data-status hidden role="alert"></p>
 
               <button type="submit" class="btn btn--primary btn--lg register-submit">Submit</button>
             </form>
@@ -179,10 +180,18 @@
             hidden
           >
             <form
+              id="form-business"
               class="contact__form register-form"
-              onsubmit="event.preventDefault(); alert('Thanks! We’ll be in touch within a day.'); this.reset();"
-              novalidate
+              action="https://formsubmit.co/ajax/jonathandavis.redoblado@gmail.com"
+              method="POST"
+              data-form-type="business"
             >
+              <!-- FormSubmit config -->
+              <input type="hidden" name="_subject" value="New Business Registration — Call A Temp" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+
               <div class="field field--full">
                 <label for="biz-company">Company name *</label>
                 <input id="biz-company" name="company" type="text" required />
@@ -228,13 +237,7 @@
                 <input id="biz-email" name="email" type="email" required />
               </div>
 
-              <div class="field field--full register-captcha" aria-hidden="true">
-                <div class="captcha-placeholder">
-                  <span class="captcha-checkbox"></span>
-                  <span class="captcha-label">I'm not a robot</span>
-                  <span class="captcha-brand">reCAPTCHA</span>
-                </div>
-              </div>
+              <p class="form-status field--full" data-status hidden role="alert"></p>
 
               <button type="submit" class="btn btn--primary btn--lg register-submit">Submit</button>
             </form>
@@ -351,6 +354,51 @@
         document.getElementById('tab-' + next).focus();
       }
     }));
+
+    // Form submission via FormSubmit AJAX
+    document.querySelectorAll('.register-form').forEach(form => {
+      const status = form.querySelector('[data-status]');
+      const submit = form.querySelector('button[type="submit"]');
+      const originalLabel = submit.textContent;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+        status.hidden = true;
+        status.classList.remove('is-error');
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          const json = await res.json().catch(() => ({}));
+
+          if (res.ok && (json.success === 'true' || json.success === true)) {
+            window.location.href = 'thanks.html?type=' + encodeURIComponent(form.dataset.formType);
+            return;
+          }
+
+          throw new Error(json.message || 'Submission failed.');
+        } catch (err) {
+          status.textContent = "Sorry — something went wrong. Please try again, or email us at hello@callatemp.com.au.";
+          status.classList.add('is-error');
+          status.hidden = false;
+          submit.disabled = false;
+          submit.textContent = originalLabel;
+        }
+      });
+    });
   </script>
 </body>
 </html>
