@@ -195,6 +195,119 @@ p  { margin: 0 0 1em; color: var(--muted); }
   padding: 64px 0 80px;
   overflow: hidden;
 }
+
+/* Hero — video background variant */
+.hero--video {
+  background: var(--navy);
+  padding: 120px 0 96px;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero--video .hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero--video .hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(26, 27, 94, 0.85) 0%, rgba(26, 27, 94, 0.55) 60%, rgba(26, 27, 94, 0.35) 100%),
+    radial-gradient(900px 500px at 90% -10%, rgba(46, 232, 176, 0.18), transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero--video .hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  color: #fff;
+}
+.hero--video .hero__title {
+  color: #fff;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  margin: 14px 0 18px;
+  line-height: 1.1;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+}
+.hero--video .lead--on-dark {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  font-size: 1.05rem;
+}
+.hero--video .hero__cta { margin: 24px 0 32px; }
+.hero--video .hero__trust--on-dark {
+  list-style: none;
+  padding: 18px 22px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: .88rem;
+  max-width: 600px;
+}
+.hero--video .hero__trust--on-dark li {
+  position: relative;
+  padding-left: 14px;
+  line-height: 1.35;
+}
+.hero--video .hero__trust--on-dark li + li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.hero--video .hero__trust--on-dark strong {
+  display: block;
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+.hero--video .eyebrow--on-dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile: hide video (save data, faster load), show poster gradient instead */
+@media (max-width: 720px) {
+  .hero--video {
+    padding: 80px 0 64px;
+    min-height: 0;
+  }
+  .hero--video .hero__video { display: none; }
+  .hero--video {
+    background:
+      linear-gradient(135deg, rgba(26, 27, 94, 0.92) 0%, rgba(26, 27, 94, 0.7) 100%),
+      url('./assets/two-dental-nurse-and-patient.jpeg') center/cover no-repeat,
+      var(--navy);
+  }
+  .hero--video .hero__trust--on-dark { grid-template-columns: 1fr; gap: 8px; }
+  .hero--video .hero__trust--on-dark li + li::before { display: none; }
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero--video .hero__video { display: none; }
+}
 .hero__grid {
   display: grid;
   grid-template-columns: 1.1fr .9fr;

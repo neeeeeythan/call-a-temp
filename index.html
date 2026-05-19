@@ -49,57 +49,40 @@
     </div>
   </header>
 
-  <main id="top">`
-    
+  <main id="top">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <span class="eyebrow">Dental temp staffing · Perth, WA</span>
-          <h1>Reliable dental temps,<br/>on the days you need them.</h1>
-          <p class="lead">
-            Call A Temp supplies Perth dental practices with reliable, pre-screened temporary staff—including Dental Assistants, Hygienists, Oral Health Therapists, and Receptionists —ready to step in when you need them most.
-<br>Whether it’s sick leave, annual leave, or a surge in patient demand. <br><br>Stay fully staffed. Stay focused on patient care.
-          </p>
-          <div class="hero__cta">
-            <a href="#book" class="btn btn--primary">Book a Temp</a>
-            <a href="#join" class="btn btn--ghost">Join as a Temp</a>
-          </div>
-          <ul class="hero__trust">
-            <li><strong>Trusted</strong> by Perth practices</li>
-            <li><strong>100%</strong> pre-screened staff</li>
-            <li><strong>Full</strong> payroll &amp; insurance handled</li>
-          </ul>
+    <!-- Hero (video background) -->
+    <section class="hero hero--video">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="./assets/two-dental-nurse-and-patient.jpeg"
+        aria-hidden="true"
+      >
+        <source src="./assets/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <span class="eyebrow eyebrow--on-dark">Dental temp staffing · Perth, WA</span>
+        <h1 class="hero__title">Reliable dental temps,<br/>on the days you need them.</h1>
+        <p class="lead lead--on-dark">
+          Call A Temp supplies Perth dental practices with reliable, pre-screened temporary staff — Dental Assistants, Hygienists, Oral Health Therapists, and Receptionists — ready to step in when you need them most.<br/><br/>
+          Stay fully staffed. Stay focused on patient care.
+        </p>
+        <div class="hero__cta">
+          <a href="#book" class="btn btn--primary">Book a Temp</a>
+          <a href="#join" class="btn btn--outline">Join as a Temp</a>
         </div>
-
-        <div class="hero__visual">
-          <div class="hero__shape" aria-hidden="true"></div>
-          <div class="hero__blob" aria-hidden="true"></div>
-
-          <img
-            class="hero__photo"
-            src="./assets/two-dental-nurse-and-patient.jpeg"
-            alt="Dental team caring for a patient in a modern clinic"
-            loading="eager"
-          />
-
-          <div class="hero__pill" aria-hidden="true">
-            <span class="hero__pill-dot"></span>
-            <div>
-              <span class="hero__pill-label">Temp confirmed</span>
-              <span class="hero__pill-sub">Tue · 9:00 am · DA</span>
-            </div>
-          </div>
-
-          <div class="hero__card" aria-hidden="true">
-            <div class="hero__card-head">
-              <img src="assets/logo-mark.svg" alt="" />
-              <p class="hero__card-title">Need a Dental Assistant tomorrow?</p>
-            </div>
-            <p class="hero__card-sub">Tell us your shift — we'll match a vetted temp within hours.</p>
-          </div>
-        </div>
+        <ul class="hero__trust hero__trust--on-dark">
+          <li><strong>Trusted</strong> by Perth practices</li>
+          <li><strong>100%</strong> pre-screened staff</li>
+          <li><strong>Full</strong> payroll &amp; insurance handled</li>
+        </ul>
       </div>
     </section>
 
