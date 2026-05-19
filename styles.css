@@ -218,8 +218,7 @@ p  { margin: 0 0 1em; color: var(--muted); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(26, 27, 94, 0.85) 0%, rgba(26, 27, 94, 0.55) 60%, rgba(26, 27, 94, 0.35) 100%),
-    radial-gradient(900px 500px at 90% -10%, rgba(46, 232, 176, 0.18), transparent 60%);
+    linear-gradient(110deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.32) 45%, rgba(0, 0, 0, 0.15) 75%, rgba(0, 0, 0, 0.05) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -234,13 +233,15 @@ p  { margin: 0 0 1em; color: var(--muted); }
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   margin: 14px 0 18px;
   line-height: 1.1;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7), 0 0 8px rgba(0, 0, 0, 0.45);
 }
 .hero--video .lead--on-dark {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.96);
   max-width: 600px;
   font-size: 1.05rem;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
 }
+.hero--video .eyebrow--on-dark { text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4); }
 .hero--video .hero__cta { margin: 24px 0 32px; }
 .hero--video .hero__trust--on-dark {
   list-style: none;
@@ -287,18 +288,11 @@ p  { margin: 0 0 1em; color: var(--muted); }
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile: hide video (save data, faster load), show poster gradient instead */
+/* Mobile: video still plays, just tightens spacing */
 @media (max-width: 720px) {
   .hero--video {
     padding: 80px 0 64px;
     min-height: 0;
-  }
-  .hero--video .hero__video { display: none; }
-  .hero--video {
-    background:
-      linear-gradient(135deg, rgba(26, 27, 94, 0.92) 0%, rgba(26, 27, 94, 0.7) 100%),
-      url('./assets/two-dental-nurse-and-patient.jpeg') center/cover no-repeat,
-      var(--navy);
   }
   .hero--video .hero__trust--on-dark { grid-template-columns: 1fr; gap: 8px; }
   .hero--video .hero__trust--on-dark li + li::before { display: none; }
