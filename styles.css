@@ -213,12 +213,13 @@ p  { margin: 0 0 1em; color: var(--muted); }
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  filter: brightness(1.18) contrast(1.05) saturate(1.05);
 }
 .hero--video .hero__overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.32) 45%, rgba(0, 0, 0, 0.15) 75%, rgba(0, 0, 0, 0.05) 100%);
+    linear-gradient(110deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0) 100%);
   z-index: 1;
   pointer-events: none;
 }
