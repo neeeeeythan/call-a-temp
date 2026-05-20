@@ -61,10 +61,20 @@
         playsinline
         preload="metadata"
         poster="./assets/two-dental-nurse-and-patient.jpeg"
+        data-src-desktop="./assets/hero-bg.mp4"
+        data-src-mobile="./assets/hero-bg-mobile.mp4"
         aria-hidden="true"
-      >
-        <source src="./assets/hero-bg.mp4" type="video/mp4" />
-      </video>
+      ></video>
+      <script>
+        // Pick the right hero video based on screen size — loads only one
+        (function () {
+          var v = document.querySelector('.hero__video');
+          if (!v) return;
+          var isMobile = window.matchMedia('(max-width: 720px)').matches;
+          v.src = isMobile ? v.dataset.srcMobile : v.dataset.srcDesktop;
+          v.load();
+        })();
+      </script>
       <div class="hero__overlay" aria-hidden="true"></div>
 
       <div class="container hero__content">
