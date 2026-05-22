@@ -1916,7 +1916,8 @@ p  { margin: 0 0 1em; color: var(--muted); }
   }
 }
 
-@media (max-width: 720px) {
+/* Hamburger nav: triggers at 960px so landscape phones get the mobile menu */
+@media (max-width: 960px) {
   .nav-toggle { display: inline-flex; }
   .primary-nav {
     position: absolute;
@@ -1951,7 +1952,9 @@ p  { margin: 0 0 1em; color: var(--muted); }
   .primary-nav a:not(.btn)::after,
   .primary-nav a.is-active::after { display: none; }
   .site-header__inner { position: relative; }
+}
 
+@media (max-width: 720px) {
   .section { padding: 64px 0; }
   .services,
   .steps,
