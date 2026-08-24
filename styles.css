@@ -640,6 +640,15 @@ p  { margin: 0 0 1em; color: var(--muted); }
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+/* Single-role variant: one centred card instead of a 4-up grid */
+.services--single {
+  display: flex;
+  justify-content: center;
+}
+.services--single .service {
+  width: 100%;
+  max-width: 420px;
+}
 .service {
   position: relative;
   background: #fff;

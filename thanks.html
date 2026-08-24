@@ -4,7 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Thanks for registering with Call A Temp — we'll be in touch within a day." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://callatemp.com.au/thanks.html" />
   <title>Thanks — Call A Temp</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Call A Temp" />
+  <meta property="og:title" content="Thanks — Call A Temp" />
+  <meta property="og:description" content="Thanks for registering with Call A Temp — we'll be in touch within a day." />
+  <meta property="og:url" content="https://callatemp.com.au/thanks.html" />
+  <meta property="og:image" content="https://callatemp.com.au/assets/two-dental-nurse-and-patient.jpeg" />
+  <meta property="og:locale" content="en_AU" />
+
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +28,6 @@
   <div class="topbar">
     <div class="container topbar__inner">
       <span class="topbar__item">Servicing dental practices across Perth, WA</span>
-      <span class="topbar__sep" aria-hidden="true">•</span>
-      <a class="topbar__item" href="tel:+61000000000">Call 1300 000 000</a>
       <span class="topbar__sep" aria-hidden="true">•</span>
       <a class="topbar__item" href="mailto:bookatemp@callatemp.com.au">bookatemp@callatemp.com.au</a>
     </div>
@@ -60,7 +69,7 @@
               <path d="M14 25l7 7 14-16" />
             </svg>
           </div>
-          <span class="eyebrow">Registration received</span>
+          <span class="eyebrow" data-thanks-eyebrow>Registration received</span>
           <h1 data-thanks-title>Thanks — we got it.</h1>
           <p class="lead" data-thanks-message>
             We've received your registration and our team will be in touch within a day.
@@ -75,7 +84,6 @@
           <div class="thanks__contact">
             <p>Need to reach us sooner?</p>
             <div class="thanks__contact-links">
-              <a href="tel:+61000000000">📞 1300 000 000</a>
               <a href="mailto:bookatemp@callatemp.com.au">✉️ bookatemp@callatemp.com.au</a>
             </div>
           </div>
@@ -115,10 +123,7 @@
       <div class="site-footer__cols">
         <div>
           <h4>Services</h4>
-          <a href="index.html#services">Dental Assistants</a>
-          <a href="index.html#services">Hygienists</a>
-          <a href="index.html#services">Oral Health Therapists</a>
-          <a href="index.html#services">Receptionists</a>
+          <a href="index.html#services">Dental Assistants &amp; Nurses</a>
         </div>
         <div>
           <h4>Company</h4>
@@ -128,7 +133,6 @@
         </div>
         <div>
           <h4>Get in touch</h4>
-          <a href="tel:+61000000000">1300 000 000</a>
           <a href="mailto:bookatemp@callatemp.com.au">bookatemp@callatemp.com.au</a>
         </div>
       </div>
@@ -155,6 +159,7 @@
     // Personalise message based on registration type
     const params = new URLSearchParams(window.location.search);
     const type = params.get('type');
+    const eyebrowEl = document.querySelector('[data-thanks-eyebrow]');
     const titleEl = document.querySelector('[data-thanks-title]');
     const msgEl = document.querySelector('[data-thanks-message]');
     const ctaEl = document.querySelector('[data-thanks-cta]');
@@ -169,6 +174,12 @@
       msgEl.textContent = "Your practice is on our list. Our team will be in touch within a day to discuss your staffing needs.";
       ctaEl.textContent = "See our rates";
       ctaEl.href = "businesses.html#rates";
+    } else if (type === 'enquiry') {
+      eyebrowEl.textContent = "Enquiry received";
+      titleEl.textContent = "Thanks — we got your message.";
+      msgEl.textContent = "We've received your enquiry and our team will be in touch within the hour during business hours.";
+      ctaEl.textContent = "Back to services";
+      ctaEl.href = "index.html#services";
     }
   </script>
 </body>

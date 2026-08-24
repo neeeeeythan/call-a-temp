@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Register with Call A Temp — sign up as dental staff or as a Perth dental practice for flexible temp staffing." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://callatemp.com.au/register.html" />
   <title>Register — Call A Temp</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Call A Temp" />
+  <meta property="og:title" content="Register — Call A Temp" />
+  <meta property="og:description" content="Sign up as dental staff or as a Perth dental practice for flexible temp staffing." />
+  <meta property="og:url" content="https://callatemp.com.au/register.html" />
+  <meta property="og:image" content="https://callatemp.com.au/assets/gallery-front-desk.jpeg" />
+  <meta property="og:locale" content="en_AU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Register — Call A Temp" />
+  <meta name="twitter:description" content="Sign up as dental staff or as a Perth dental practice for flexible temp staffing." />
+  <meta name="twitter:image" content="https://callatemp.com.au/assets/gallery-front-desk.jpeg" />
+
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +32,6 @@
   <div class="topbar">
     <div class="container topbar__inner">
       <span class="topbar__item">Servicing dental practices across Perth, WA</span>
-      <span class="topbar__sep" aria-hidden="true">•</span>
-      <a class="topbar__item" href="tel:+61000000000">Call 1300 000 000</a>
       <span class="topbar__sep" aria-hidden="true">•</span>
       <a class="topbar__item" href="mailto:bookatemp@callatemp.com.au">bookatemp@callatemp.com.au</a>
     </div>
@@ -105,14 +118,12 @@
             <form
               id="form-staff"
               class="contact__form register-form"
-              action="https://formsubmit.co/ajax/bookatemp@callatemp.com.au"
+              action="send-form.php"
               method="POST"
               data-form-type="staff"
             >
-              <!-- FormSubmit config -->
+              <input type="hidden" name="_form_type" value="staff" />
               <input type="hidden" name="_subject" value="New Staff Registration — Call A Temp" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
 
               <div class="field field--full">
@@ -120,9 +131,7 @@
                 <select id="staff-applying" name="applying-for" required>
                   <option value="" disabled selected>Select a role…</option>
                   <option>Dental Assistant</option>
-                  <option>Dental Hygienist</option>
-                  <option>Oral Health Therapist</option>
-                  <option>Dental Receptionist</option>
+                  <option>Dental Nurse</option>
                 </select>
               </div>
 
@@ -182,14 +191,12 @@
             <form
               id="form-business"
               class="contact__form register-form"
-              action="https://formsubmit.co/ajax/bookatemp@callatemp.com.au"
+              action="send-form.php"
               method="POST"
               data-form-type="business"
             >
-              <!-- FormSubmit config -->
+              <input type="hidden" name="_form_type" value="business" />
               <input type="hidden" name="_subject" value="New Business Registration — Call A Temp" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
 
               <div class="field field--full">
@@ -279,10 +286,7 @@
       <div class="site-footer__cols">
         <div>
           <h4>Services</h4>
-          <a href="index.html#services">Dental Assistants</a>
-          <a href="index.html#services">Hygienists</a>
-          <a href="index.html#services">Oral Health Therapists</a>
-          <a href="index.html#services">Receptionists</a>
+          <a href="index.html#services">Dental Assistants &amp; Nurses</a>
         </div>
         <div>
           <h4>Company</h4>
@@ -292,7 +296,6 @@
         </div>
         <div>
           <h4>Get in touch</h4>
-          <a href="tel:+61000000000">1300 000 000</a>
           <a href="mailto:bookatemp@callatemp.com.au">bookatemp@callatemp.com.au</a>
         </div>
       </div>
@@ -360,7 +363,7 @@
       }
     }));
 
-    // Form submission via FormSubmit AJAX
+    // Form submission via send-form.php (AJAX)
     document.querySelectorAll('.register-form').forEach(form => {
       const status = form.querySelector('[data-status]');
       const submit = form.querySelector('button[type="submit"]');
